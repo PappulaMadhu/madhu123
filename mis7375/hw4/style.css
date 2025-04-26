@@ -1,0 +1,267 @@
+ 
+/*
+Program name: patient-form.html
+Autor: Madhusudhan Reddy Pappula
+Date created: 27/02/2025
+Date last edited: 24/04/2025
+Version: 2.0
+Description: Learning to create a patient-form using html and css. 
+*/
+
+.logo{
+    width: 100px;
+    height: auto; /* Maintain aspect ratio */
+    position: static !important;
+    top: 10px;
+    left: 10px;
+    margin-bottom: 100px; /* Add space below the logo */
+}
+/* Fixed header */
+header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* White background for header */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow to the header */
+}
+/* Style for the heading */
+h1 {
+    margin-top: auto; /* Add space above the heading */
+    font-family: 'Times New Roman', Times, serif; /* Set font to Times New Roman */
+    font-size: 24px; /* Adjust size */
+    font-weight: bold; /* Make it bold */
+    color: #2c3e50; /* Change color */
+    text-align: center; /* Center align */
+    display: flex;
+    justify-content: space-between; /* Distributes space between the title and the date */
+    align-items: left;
+}
+h2 {
+    margin-top: 10px; /* Add space above the heading */
+    font-family: 'Roboto', sans-serif; /* Set font to Times New Roman */
+    font-size: 24px; /* Adjust size */
+    font-weight: bold; /* Make it bold */
+    color: #2c3e50; /* Change color */
+    text-align: center; /* Center align */
+}
+
+
+/* This changes color of background of page*/
+body {
+    background-color: lightblue;
+}
+
+/* This class centers the entire form */
+.center-form {
+  width: 500px;   /* Control the form width */
+  margin: 50px auto;  /* Horizontally centers the form */
+  padding: 20px;
+  background-color: pink;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input fields should align well with the labels */
+.center-form select, .center-form textarea {
+    width: 50%;
+    padding: 5px;   
+}
+
+/* Style for all buttons */
+button, input[type="submit"], input[type="reset"] {
+    color: black; /* White text */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Add some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Inline-block for proper sizing */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Small margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Footer "Contact Us" button */
+.footer button {
+    background-color: lightcoral; /* Light coral background */
+}
+
+/* Hover effect for buttons */
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover, .footer button:hover {
+    background-color: green; /* green on hover */
+}
+
+
+/* Fixed footer */
+.footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Dark gray background */
+    color: white; /* White text */
+    padding: 10px 0; /* Vertical padding */
+    text-align: center; /* Centered text */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Style for links in the footer */
+.footer a {
+    color: goldenrod; /* Glodenrod link color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 5px; /* Horizontal margin */
+}
+
+/* Hover effect for footer links */
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.right-align {
+    text-align: right;
+    margin-right: 10px; /* Adjust as needed */
+}
+
+#dateDisplay {
+    margin-right: 10px;  /* Space between heading and date */
+}
+
+/* Styling for review section */
+#reviewSection {
+    margin-top: 30px;
+}
+
+#reviewSection button {
+    width: 100px;
+    margin: 5px;
+}
+
+/* Align table within the form */
+.center-form table {
+    width: 0%;
+    border-spacing: 0 10px;
+    margin-left: 85px;
+}
+
+/* Center the button group */
+.button-group {
+    display: flex;
+    justify-content: center;  /* Center the buttons horizontally */
+    gap: 10px;                /* Space between buttons */
+    margin-top: 20px;          /* Adds some space above the buttons */
+}
+
+/* Style for each button inside the group */
+.button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;  /* Green color for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the buttons */
+.button-group button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Initially hide the submit button */
+#submitReviewBtn {
+    display: inline-block;  /* Hidden by default */
+}
+
+/* Style for the error message (initially hidden) */
+/* Ensures that each form input and its associated error message are properly spaced */
+td {
+    padding-bottom: 10px;
+}
+
+/* Style for the error message */
+.error {
+    color: red; /* Red color for error message */
+    font-size: 12px; /* Small font size for error */
+    display: block; /* Make the error message block-level to appear below the input field */
+    margin-top: 5px; /* Add some spacing between the input and the error message */
+}
+
+/* Optional: Style for hint messages */
+span[id$='Hint'] {
+    color: #777; /* Light grey color for hint */
+    font-size: 12px;
+    display: block; /* Make hints appear below the input */
+    margin-top: 5px;
+}
+
+slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+#priceSlider {
+  width: 100%;
+}
+
+#minPriceDisplay, #maxPriceDisplay,  #salaryValue {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none; /* Prevent interaction with the text */
+  transform: translateX(-50%); /* Center the value horizontally */
+  transition: left 0.1s ease-in-out; /* Smooth transition for the position */
+  left: 58%; /* This will center the value horizontally in the parent container */
+}
+
+.hint {
+    display: block;  /* Ensures the hint is displayed as a block element */
+    margin-top: 5px; /* Adds space between the input field and the hint */
+    font-size: 0.9em; /* Slightly smaller font size for hints */
+    color: white; /* Default color for the hint */
+}
+
+.hint.valid {
+    color: green; /* Green for valid input */
+}
+
+.hint.invalid {
+    color: red; /* Red for invalid input */
+}
+
+/* 🌟 NEW: Style for the Welcome Section (New User or Returning User) 🌟 */
+.welcome-container {
+    text-align: center;
+    margin-bottom: 20px; /* Space between the welcome container and the form */
+}
+
+#notYouBox {
+    margin-top: 10px; /* Adds space between the message and checkbox */
+}
+
+#notYouCheck {
+    margin-left: 10px; /* Adds space after the checkbox */
+}
+
+/* Highlight the user’s name in the "Not You?" message */
+#cookieName {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* NEW: Style for "Not You?" checkbox for resetting the cookie */
+#notYouCheck {
+    cursor: pointer;
+}
+
+.iframe-container {
+    max-width: 1200px; /* Set a max width to limit the iframe size */
+    margin: 0 auto; /* Centers the iframe in the container */
+    background-color: transparent
+}
