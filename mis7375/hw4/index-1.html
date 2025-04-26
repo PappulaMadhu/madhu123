@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<!-- 
+Program name: patient-form.html
+Autor: Madhusudhan Reddy Pappula
+Date created: 27/02/2025
+Date last edited: 24/04/2025
+Version: 3.0
+Description: Learning to create a patient-form using html and css. 
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration Form</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="index.js"></script> <!-- External JS File -->
+ 
+
+</head>
+<body>
+    <!-- Logo Section -->
+    <img src="logo.jpg" alt="logo" class="logo">
+    <div class = "banner">
+        <h1>AMERICAN HOSPITAL ASSOCIATION <span id="dateDisplay"></span></h1>  
+    </div>
+    <h2>PATIENT REGISTRATION FORM</h2>
+    <div class="welcome-container">
+        <h2 id="welcomeMessage">Welcome New User</h2>
+        <div id="notYouBox" style="display: none;">
+            <label>
+                Not <span id="cookieName"></span>? 
+                <input type="checkbox" id="notYouCheck"> Click here to start as a NEW USER.
+            </label>
+        </div>
+    </div>
+    
+    <!-- Form Section -->
+    <form class = "center-form" id="myForm" >
+        <table>
+            
+            <!-- Personal Information -->
+            <tr>
+                <td><label for="firstName">First Name:</label></td>
+                <td>
+                    <input type="text" id="firstName" name="firstName" maxlength="30" minlength="1" oninput="validateFirstName()" onfocus="showFirstNameHint()" onblur="finalizeFirstName()" placeholder="Enter First Name" pattern="^[a-zA-Z'-]{1,30}$" required title="Letters, apostrophes, and dashes only"> <span id="firstNameHint" class="hint"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="middleInitial">Middle Initial:</label></td>
+                <td>
+                    <input type="text" id="middleInitial" name="middleInitial" maxlength="1"  oninput="validateMiddleInitial()" onfocus="showMiddleInitialHint()" onblur="finalizeMiddleInitial()" placeholder="Enter Middle Initial (optional)" pattern="^[A-Za-z]?$"> <span id="middleInitialHint"></span>
+                </td>
+                
+            </tr>
+            <tr>
+                <td><label for="lastName">Last Name:</label></td>
+                <td>
+                    <input type="text" id="lastName" name="lastName" maxlength="30" minlength="1" oninput="validateLastName()" onfocus="showLastNameHint()" onblur="finalizeLastName()" placeholder="Enter Last Name" pattern="^[a-zA-Z'-]{1,30}$" required title="Letters, apostrophes, and dashes only"> <span id="lastNameHint"></span>
+                </td>
+                
+            </tr>
+            <tr>
+                <td><label for="dob">Date of Birth:</label></td>
+                <td>
+                    <input type="date" id="dob" name="dob" min="1905-03-26" max="2025-03-26"  placeholder="MM/DD/YYYY" onfocus="showDobHint()" oninput="validateDob()" onblur="finalizeDob()" required> <span id="dobHint" class="hint"></span>
+                </td>  
+            </tr> 
+            <tr>
+                <td><label for="move_in_date">Move-In Date:</label></td>
+                <td>
+                    <input type="date" id="move_in_date" name="move_in_date" min="2025-03-26" onfocus="showMoveInDateHint()" oninput="validateMoveInDate()" onblur="finalizeMoveInDate()" required> <span id="moveInDateHint" class="hint"></span>        
+            </td> 
+            </tr>
+            <tr>
+                <td><label for="travel_date">Travel Date:</label></td>
+                <td>
+                    <input type="date" id="travel_date" name="travel_date" min="2025-03-26" onfocus="showTravelDateHint()" oninput="validateTravelDate()" onblur="finalizeTravelDate()" required> <span id="travelDateHint" class="hint"></span>
+                </td> 
+            </tr>
+            <tr>
+                <td><label for="ssn">Social Security:</label></td>
+                <td>
+                    <input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" oninput="validateSsn()" onfocus="showSsnHint()" onblur="finalizeSsn()" pattern="\d{3}-\d{2}-\d{4}" placeholder="XXX-XX-XXXX" required> <span id="ssnHint" class="hint"></span>
+                </td>
+            </tr>
+            <!-- Address Information -->
+            <tr>
+                <td><label for="address1">Address Line 1:</label></td>
+                <td>
+                    <input type="text" id="address1" name="address1" maxlength="30" minlength="2" onfocus="showAddress1Hint()" oninput="validateAddress1()" onblur="finalizeAddress1()" required> <span id="address1Hint" class="hint"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address2">Address Line 2:</label></td>
+                <td>
+                    <input type="text" id="address2" name="address2" maxlength="30" minlength="2" onfocus="showAddress2Hint()" oninput="validateAddress2()" onblur="finalizeAddress2()" required> <span id="address2Hint" class="hint"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td>
+                    <input type="text" id="city" name="city" maxlength="30" minlength="2" onfocus="showCityHint()" oninput="validateCity()" onblur="finalizeCity()" required> <span id="cityHint" class="hint"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td>
+                    <select id="state" name="state" required>
+                        <option value="" selected disabled>Select your state</option> <!-- NULL entry -->
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                        <option value="PR">Puerto Rico (PR)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="zipcode">Zip Code (required, 5 digits only):</label></td>
+                <td>
+                    <input type="text" id="zipcode" name="zipcode" maxlength="5"  oninput="validateZipCode(this)" onblur="finalizeZipCode()" onfocus="showZipCodeHint()" pattern="^\d{5}$" required placeholder="Enter 5-digit zip code"> <span id="zipcodeHint" class="hint"></span>
+                </td>
+            </tr>
+            <!-- Contact Information -->
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td>
+                    <input type="email" id="email" name="email" maxlength="40" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" onfocus="showEmailHint()" oninput="validateEmail()" onblur="finalizeEmail()" required title="name@domain.tld"> <span id="emailHint" class="hint"></span>
+                </td>
+            </tr>
+            <!-- Checkboxes -->
+            <tr>
+                <td>Have you had:</td>
+                <td>
+                    <input type="checkbox" id="chickenPox" name="illness" value="Chicken Pox">
+                    <label for="chickenPox">Chicken Pox</label><br>
+                    <input type="checkbox" id="measles" name="illness" value="Measles">
+                    <label for="measles">Measles</label><br>
+                    <input type="checkbox" id="covid" name="illness" value="Covid-19">
+                    <label for="covid">Covid-19</label><br>
+                    <input type="checkbox" id="smallPox" name="illness" value="Small Pox">
+                    <label for="smallPox">Small Pox</label><br>
+                    <input type="checkbox" id="tetanus" name="illness" value="Tetanus">
+                    <label for="tetanus">Tetanus</label>
+                </td>
+            </tr>
+            <!-- Radio Buttons -->
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other">Other</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Vaccinated?</td>
+                <td>
+                    <input type="radio" id="vaccinatedYes" name="vaccinated" value="Yes" required>
+                    <label for="vaccinatedYes">Yes</label>
+                    <input type="radio" id="vaccinatedNo" name="vaccinated" value="No">
+                    <label for="vaccinatedNo">No</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Do you own or rent?</td>
+                <td>
+                    <input type="radio" id="own" name="housing" value="own" required>
+                    <label for="own">Own</label>
+                    <input type="radio" id="rent" name="housing" value="rent">
+                    <label for="rent">Rent</label>
+                    <input type="radio" id="unsure" name="housing" value="unsure">
+                    <label for="unsure">Unsure</label>
+                </td>
+            </tr>
+                   
+            <!-- Slider -->
+            <tr>
+                <td><label for="salary">Desired Salary:</label></td>
+                <td>
+                    &nbsp;$20000 <input type="range" class="slider" id="salary" name="salary" min="20000" max="200000" step="1000" oninput="updateSalaryValue()"> $200000&nbsp;<br>
+                    <span id="salaryValue"></span> <!-- Display salary value -->
+                </td>
+            </tr>
+            <!-- Real Estate Price Range with Sliders -->
+            <tr>
+                <td><label for="minPrice">Minimum Price:</label></td>
+                <td>
+                    &nbsp;10000 <input type="range" id="minPrice" name="minPrice" min="10000" max="5000000" value="10000" step="1000" oninput="updatePriceRange()"> $5000000&nbsp;<br>
+                    <span id="minPriceDisplay"></span> <!-- Display the current minimum price -->
+                </td>
+            </tr>
+            <tr>
+                <td><label for="maxPrice">Maximum Price:</label></td>
+                <td>
+                    &nbsp;10000 <input type="range" id="maxPrice" name="maxPrice" min="10000" max="5000000" value="5000000" step="1000" oninput="updatePriceRange()"> $5000000&nbsp;<br>
+                    <span id="maxPriceDisplay"></span> <!-- Display the current maximum price -->
+                </td>
+            </tr>
+            <tr>
+                <td>Price Range:</td>
+                <td>
+                    <span id="priceRangeDisplay">$10,000 - $5,000,000</span> <!-- Display the dynamic range -->
+                </td>
+            </tr>
+            <!-- Textarea (Optional) -->
+            <tr>
+                <td>Additional Information (Optional)</td>
+                <td><textarea id="extraInfo" name="extraInfo" rows="4" cols="50" placeholder="Enter additional information here..."></textarea></td>
+            </tr>
+            <!-- Phone number -->
+            <tr>
+                <td><label for="phoneNumber">Phone Number #:</label></td>
+                <td>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" minlength="10" maxlength="12" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="000-000-0000" onfocus="showPhoneNumberHint()" oninput="validatePhoneNumber()" onblur="finalizePhoneNumber()" required title="Valid phone number format: 000-000-0000"> <span id="phoneNumberHint" class="hint"></span>
+                </td>
+            </tr>
+            <!-- User ID and Password -->
+            <tr>
+                <td><label for="userId">User ID:</label></td>
+                <td>
+                    <input type="password" id="userId" name="userId" minlength="5" maxlength="20" required onfocus="showUserIdHint()" onblur="finalizeUserId()" oninput="validateUserId()" pattern= "^[a-zA-Z][a-zA-Z0-9_-]{4,19}$" required title="User ID must start with a letter, be 5-20 characters long, and contain only letters, numbers, underscores, or dashes."> <span id="userIdHint" class="hint"></span>
+  
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td>
+                    <input type="password" id="password" name="password" maxlength="30" minlength="8" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#%^&*()-_+=\/><.,`~]).{8,30}$" title="Password must include at least one uppercase letter, one lowercase letter, one digit, and one special character" oninput="validatePasswordOnInput()" onfocus="validatePasswordFocus()" onblur="validatePasswordBlur()"> <span id="passwordMessage"></span><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="confirmPassword">Confirm Password:</label></td>
+                <td>
+                    <input type="password" id="confirmPassword" name="confirmPassword" maxlength="30" minlength="8" required oninput="validateConfirmPassword()"><span id="confirmPasswordMessage"></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td><label for="rememberMe">Remember Me?</label></td>
+                <td>
+                    <input type="checkbox" id="rememberMe" name="rememberMe" checked>
+                    <label for="rememberMe">Check to remember your name next time</label>
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="2">
+                <!-- Password mismatch and strength message below -->
+                <div id="passwordMismatchError" style="color: red; display: none;">Passwords do not match</div> 
+                <div id="passwordStrength" class="strength"></div> <!-- Password strength message -->
+                </td>
+            </tr> 
+             
+        </table>
+        <p id="message" class="error"></p>
+        <!-- Buttons -->
+        <div class="button-group">
+            <button type="reset">Clear and Start Over</button>
+            <button type="button" id="reviewBtn">Review</button>
+        </div>    
+        
+    </form> 
+    
+    <div id="reviewSection" style="display: none;">
+        <h3>Review Your Information:</h3>
+        <ul id="reviewList"></ul>
+        <ul id="errorList"></ul>
+        <div class="button-group">
+            <button type="button" id="editBtn">Edit</button>
+            <button type="button" id="submitReviewBtn">Submit</button>
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>
+            American hospital association | 
+             <button onclick="window.location.href='https://www.aha.org/'">CONTACT US</button>| 
+            <!-- Iframe for Twitter or additional content -->
+            <iframe src="footer.html" title="Footer" width="80" height="30" style="border: none;"></iframe> | 
+            <a href="https://www.facebook.com/ahahospitals/" class="contact-button">FB</a> | 
+            155 N Wacker Dr, Chicago, IL 60606
+        </p>
+    </div>
+
+
+           
+</body>
+</html>
