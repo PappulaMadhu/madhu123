@@ -2,25 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Footer Content</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Iframe Content</title>
   <style>
-    /* Style for the links in gold color */
-    .gold-link {
-      color: goldenrod; /* Set text color to goldenrod */
-      text-decoration: none; /* Remove underline */
+    /* Center the iframe container within the page */
+    body {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center;     /* Center vertically */
+      height: 100vh;           /* Make the body take the full height */
+      margin: 0;               /* Remove default margin */
+      background-color: #f0f0f0; /* Optional: Light background for contrast */
     }
-
-    /* Change color on hover */
-    .gold-link:hover {
-      color: goldenrod; /* Slightly darker gold on hover */
+    /* This will center the iframe box in the parent page */
+    .iframe-box {
+      width: 100%;
+      height: 280px;  /* Adjust based on your layout */
+      display: flex;  /* Use flexbox to align items */
+      justify-content: center;  /* Align content to the right */
+      align-items: center;      /* Optional: Center vertically */
+      margin-top: 20px;
+      
+    }
+    iframe {
+      width: 760px;
+      height: 310px;
+      border: none;  /* Optional: Remove default iframe border */
     }
   </style>
+
 </head>
 <body>
-  <p>
-    <!-- Apply the gold-link class to Twitter link -->
-    <a href="https://twitter.com/indeed?lang=en" target="_blank" class="gold-link">TWITTER</a> | 
-    Created by Madhu Pappula 
-  </p>
+  <div class="iframe-box">
+    <iframe src="https://www.youtube.com/embed/HIgat6hcGQk" 
+            title="YouTube video player" 
+            allowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
