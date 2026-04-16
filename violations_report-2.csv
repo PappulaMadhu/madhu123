@@ -1,0 +1,25 @@
+log_id,username,user_id,attempted_permission,access_time,violation
+3,bob,2,delete_user,2025-06-10 08:10,True
+4,charlie,3,access_dashboard,2025-06-10 08:15,True
+6,dave,4,delete_user,2025-06-10 08:30,True
+11,dave,4,delete_user,2025-06-05 16:56:31,True
+14,bob,2,delete_user,2025-06-06 14:55:31,True
+17,bob,2,delete_user,2025-06-05 12:49:31,True
+23,charlie,3,access_dashboard,2025-06-06 17:43:31,True
+24,dave,4,delete_user,2025-06-04 16:53:31,True
+30,dave,4,delete_user,2025-06-10 13:05:31,True
+35,bob,2,delete_user,2025-06-10 13:30:31,True
+37,charlie,3,access_dashboard,2025-06-06 06:13:31,True
+40,charlie,3,delete_user,2025-06-05 06:56:31,True
+41,bob,2,delete_user,2025-06-06 14:59:31,True
+43,charlie,3,view_reports,2025-06-09 05:19:31,True
+48,bob,2,delete_user,2025-06-06 14:12:31,True
+51,bob,2,delete_user,2025-06-08 19:58:31,True
+57,dave,4,delete_user,2025-06-05 12:13:31,True
+64,bob,2,delete_user,2025-06-04 23:34:31,True
+67,dave,4,delete_user,2025-06-08 04:17:31,True
+74,charlie,3,delete_user,2025-06-06 00:47:31,True
+78,dave,4,delete_user,2025-06-08 07:19:31,True
+86,charlie,3,view_reports,2025-06-06 21:34:31,True
+91,bob,2,delete_user,2025-06-07 21:36:31,True
+92,charlie,3,delete_user,2025-06-04 21:58:31,True
