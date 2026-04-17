@@ -1,0 +1,4 @@
+role_name,access_dashboard,delete_user,edit_profile,view_reports
+Admin,✔️,✔️,✔️,✔️
+Guest,✖️,✖️,✔️,✖️
+Staff,✔️,✖️,✔️,✔️

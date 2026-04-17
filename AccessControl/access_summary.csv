@@ -1,0 +1,5 @@
+username,total_accesses,violations,violation_rate (%)
+alice,16,0,0.0
+bob,24,9,37.5
+charlie,29,8,27.59
+dave,23,7,30.43
