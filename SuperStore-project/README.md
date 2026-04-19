@@ -41,5 +41,3 @@ The analysis revealed that excessive discounting—especially in specific produc
 ## Key Takeaway
 
 The core insight from this project is that profit losses are not driven by low sales, but by aggressive discounting strategies. By using machine learning and explainable AI, businesses can proactively identify high-risk transactions and optimize pricing decisions to protect margins.
-
----
